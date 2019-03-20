@@ -194,7 +194,7 @@
                                     // Ajax call for receiving response after POST req
                                     $.post("/api/friends", newUser, function (data) {
                                         console.log(data);
-                                        $('#matchName').text(data.name);
+                                        $('#matchName').text(data.name + " is your new best friend.");
 
                                         // Show the modal with the best match 
                                         $("#resultsModal").modal('toggle');
