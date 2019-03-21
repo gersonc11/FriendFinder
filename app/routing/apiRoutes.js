@@ -16,10 +16,10 @@ module.exports = function (app) {
 	app.post('/api/friends', function (req, res) {
 	// Capture new friend information
 	var newFriend = {
-		newName: "",
+		matchName: "",
 		difference: 100
 	};
-	var { newName, difference } = newFriend
+	var { matchName, difference } = newFriend
 		
 	// capture object of survey answers from front end
 		var friendData = {
@@ -51,13 +51,13 @@ module.exports = function (app) {
 // loops through entire list of friends and keeps going if there is a lower difference
 			if (friendDifference < difference) {
 				difference = friendDifference;
-				newName = friends[i];
+				matchName = friends[i];
 			}
 		}
 	}
 
 // replies with the name of the friend that has the least difference between survey choices
-	res.json(newName);
+	res.json(matchName);
 
 // send the user input into the friends array
 	friends.push(friendData);
