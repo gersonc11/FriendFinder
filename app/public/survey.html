@@ -149,7 +149,7 @@
                     if ($("#name").val() === "") {
                         valid = false;
                     }
-                    else if (valid === true) {
+                    else (valid === true) {
                         var newUser = {
                             name: $("#name").val().trim(),
                             scores: [
@@ -171,9 +171,6 @@
                             // alerts who your new friend is
                             alert('Your new friend is ' + data.name);
                         });
-                    } else {
-                        // If a required field is missing, show alert
-                        alert("Survey is incomplete!");
                     }
                 });
             });
