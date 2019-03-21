@@ -131,7 +131,7 @@
             </div>
         </form>
         <div class="text-center">
-            <button id="submitBtn" type="submit" class="btn btn-success btn-lg">Submit</button>
+            <button id="submitBtn" type="submit" class="btn btn-primary btn-lg">Submit</button>
         </div>
         <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
@@ -149,7 +149,7 @@
                     if ($("#name").val() === "") {
                         valid = false;
                     }
-                    else (valid === true) {
+                    else if (valid === true) {
                         var newUser = {
                             name: $("#name").val().trim(),
                             scores: [
@@ -165,13 +165,16 @@
                                 $("#question10").val()
                             ]
                         };
-                        // call to receive data after posting new friend
-                        $.post("/api/friends", newUser, function (data) {
-                            console.log(data);
-                            // alerts who your new friend is
-                            alert('Your new friend is ' + data.name);
-                        });
                     }
+                    else {
+                        alert("complete the form");
+                    };
+                    // call to receive data after posting new friend
+                    $.post("/api/friends", newUser, function (data) {
+                        console.log(data);
+                        // alerts who your new friend is
+                        alert('Your new friend is ' + data.name);
+                    });
                 });
             });
         </script>
